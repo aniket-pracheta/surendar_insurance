@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="card card-register mx-auto mt-5">
+    <div class="card-header">Register an Account</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-6 mt-4">
+              <div class="form-label-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" class="form-control" placeholder="First name" required="required"
+                  autofocus="autofocus">
+
+              </div>
+            </div>
+            <div class="col-md-6 mt-4">
+              <div class="form-label-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-group">
+            <label for="inputEmail">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-6 mt-4">
+              <div class="form-label-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                  required="required">
+
+              </div>
+            </div>
+            <div class="col-md-6 mt-4">
+              <div class="form-label-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password"
+                  required="required">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- class="dropdown" -->
+
+
+        <div class="form-group">
+          <div class="form-label-group">
+            <label for="inputEmail">Gender</label>
+            <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required"> -->
+            <div class="form-group">
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                Gender
+              </button>
+              <div class="dropdown-menu">
+                <!-- <a class="dropdown-item">Link 1</a>
+                <a class="dropdown-item">Link 2</a> -->
+                <option class="dropdown-item" value="1">One</option>
+                <option class="dropdown-item" value="2">Two</option>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="form-label-group col-md-4">
+            <label for="inputEmail">DOB</label>
+            <!-- <input [owlDateTime]="dt2" placeholder="Date Time">
+            <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+            <owl-date-time #dt2></owl-date-time> -->
+          </div>
+        </div>
+
+
+
+
+
+
+        <a class="btn btn-primary btn-block" href="login.html">Register</a>
+      </form>
+      <div class="text-center">
+        <a class="d-block small mt-3" [routerLink]="['/login']">Login Page</a>
+        <a class="d-block small mt-3" [routerLink]="['/register']">Register an Account</a>
+      </div>
+    </div>
+  </div>
+</div>
