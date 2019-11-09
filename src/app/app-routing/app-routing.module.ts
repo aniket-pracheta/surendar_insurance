@@ -12,17 +12,21 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { EngagedProductComponent } from '../engaged-product/engaged-product.component';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { CreateInsuranceComponent } from "../create-insurance/create-insurance.component";
+
+import { UserLoggedGuard } from "../user-logged.guard";
 
 
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'home', component: UserDashboardComponent },
-  { path: 'engaged-list', component: EngagedProductComponent },
-  { path: 'product-list', component: ProductListComponent },
-  { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'home', component: UserDashboardComponent,canActivate: [UserLoggedGuard]  },
+  { path: 'create-insurance', component: CreateInsuranceComponent,canActivate: [UserLoggedGuard]  },
+  { path: 'engaged-list', component: EngagedProductComponent, canActivate: [UserLoggedGuard]  },
+  { path: 'product-list', component: ProductListComponent, canActivate: [UserLoggedGuard]  },
+  { path: 'product-details', component: ProductDetailsComponent,canActivate: [UserLoggedGuard]  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -33,7 +37,7 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   exports: [RouterModule]

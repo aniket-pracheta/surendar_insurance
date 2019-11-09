@@ -18,7 +18,9 @@ import { FooterComponent } from './footer/footer.component';
 import { EngagedProductComponent } from './engaged-product/engaged-product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component'; 
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,15 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     FooterComponent,
     EngagedProductComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CreateInsuranceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
