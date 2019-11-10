@@ -13,6 +13,7 @@ import { EngagedProductComponent } from '../engaged-product/engaged-product.comp
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { CreateInsuranceComponent } from "../create-insurance/create-insurance.component";
+import { SearchInsuranceComponent } from "../search-insurance/search-insurance.component";
 
 import { UserLoggedGuard } from "../user-logged.guard";
 
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'engaged-list', component: EngagedProductComponent, canActivate: [UserLoggedGuard]  },
   { path: 'product-list', component: ProductListComponent, canActivate: [UserLoggedGuard]  },
   { path: 'product-details', component: ProductDetailsComponent,canActivate: [UserLoggedGuard]  },
+  { path: 'search-policies', component: SearchInsuranceComponent,canActivate: [UserLoggedGuard]  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

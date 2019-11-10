@@ -21,6 +21,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
+import { SearchInsuranceComponent } from './search-insurance/search-insurance.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CreateInsuranceComponent } from './create-insurance/create-insurance.co
     EngagedProductComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    CreateInsuranceComponent
+    CreateInsuranceComponent,
+    SearchInsuranceComponent
   ],
   imports: [
     BrowserModule,

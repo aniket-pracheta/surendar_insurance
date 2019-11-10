@@ -8,27 +8,29 @@
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
                 <label for="firstName">Title</label>
-                <input type="text" formControlName="title" id="firstName" class="form-control" placeholder="First name" required="required"
-                  autofocus="autofocus">
+                <input type="text" formControlName="title" id="firstName" class="form-control" placeholder="First name"
+                  required="required" autofocus="autofocus">
 
               </div>
             </div>
-            <div class="col-md-6 mt-4">
+            <!-- <div class="col-md-6 mt-4">
               <div class="form-label-group">
                 <label for="lastName">Description</label>
                 <textarea formControlName="description" rows="4" cols="50" name="comment" form="usrform" class="form-control" required="required">
-                  Enter text here...</textarea>
-                <!-- <input  formControlName="description" type="text" id="lastName" class="form-control" placeholder="Last name" required="required"> -->
-
+                  Enter text here...</textarea>             
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
         <div class="form-group">
           <div class="form-label-group">
-            <label for="inputEmail">Email address</label>
-            <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+            <label for="lastName">Description</label>
+            <textarea formControlName="description" rows="4" cols="50" name="comment" form="usrform"
+              class="form-control" required="required">
+                Enter text here...</textarea>
+            <!-- <label for="inputEmail">Email address</label>
+            <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required"> -->
 
           </div>
         </div>
@@ -36,16 +38,16 @@
           <div class="form-row">
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
-                <label for="inputPassword">Password</label>
-                <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
-                  required="required">
-
+                <label for="inputPassword">Cover Amount</label>
+                <input formControlName="cover_amount" type="number" id="inputPassword" class="form-control"
+                  placeholder="Password" required="required">
+                <span>*per year</span>
               </div>
             </div>
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
-                <label for="confirmPassword">Confirm password</label>
-                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password"
+                <label for="confirmPassword">Base amount for person</label>
+                <input formControlName='base_amount_for_person' type="number" id="confirmPassword" class="form-control" placeholder="Enter Amount"
                   required="required">
               </div>
             </div>
@@ -57,19 +59,29 @@
           <div class="form-row">
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
+                <label for="inputEmail">Consider Medical History</label>
+                <div>
+                  <select formControlName="medical_history" class="form-control" name="gender">
+                    <option  selected="selected" value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                
+                </div>
+
+              </div>
+              <!-- <div class="form-label-group">
                 <label for="inputEmail">DOB</label>
             <input formControlName="dateOfBirth" type="date" id="confirmPassword" class="form-control" placeholder="Confirm password"
             required="required">
-              </div>
+              </div> -->
             </div>
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
-                <label for="inputEmail">Gender</label>
-                <!-- class="form-group"  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required"> -->
-                <div >
-                  <select formControlName="gender" class="form-control" name="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                <label for="inputEmail">Consider Disabled Person</label>
+                <div>
+                  <select formControlName="disabled_person" class="form-control" name="gender">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
                   </select>
                 </div>
 
@@ -78,7 +90,8 @@
           </div>
         </div>
 
-        <button class="btn btn-primary btn-block" [disabled]="!profileForm.valid" (click)='createInsurance()'>Create</button>
+        <button class="btn btn-primary btn-block"  [disabled]="!profileForm.valid"
+          (click)='createInsurance()'>Create</button>
       </form>
       <div class="text-center">
         <!-- <a class="d-block small mt-3" [routerLink]="['/login']">Login Page</a> -->

@@ -1,0 +1,117 @@
+<div class="row">
+<div class="container col-md-6" style='margin-left: 27px;'>
+    <div class="card card-register ml-3 mx-auto mt-5">
+      <div class="card-header">Search</div>
+      <div class="card-body">
+        <form [formGroup]="profileForm">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6 mt-4">
+                <div class="form-label-group">
+                    <label for="recipient-name" class="col-form-label">Name</label>
+                    <input formControlName='recipient_name' type="text" class="form-control" id="recipient-name">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6 mt-4">
+                  <div class="form-label-group">
+                      <label for="message-text" class="col-form-label">Age</label>
+                <input type="number" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" formControlName='recipient_age' class="form-control" id="recipient-name">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6 mt-4">
+                <div class="form-label-group">
+                    <label for="recipient-name" class="col-form-label">Adhar Card no</label>
+                    <input formControlName='recipient_adhar_no' type="number" class="form-control" id="recipient-name">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6 mt-4">
+                <div class="form-label-group">
+                    <label for="inputEmail">Medical History</label>
+                    <div>
+                      <select formControlName="recipient_medical_history" class="form-control" name="gender">
+                        <option selected="selected" value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                    <span>*met an accident or any major diseases</span>
+                </div>
+              </div>
+              <div class="col-md-6 mt-4">
+                <div class="form-label-group">
+                    <label for="inputEmail">Medically Disabled</label>
+                    <div>
+                      <select formControlName="recipient_disabled" class="form-control" name="gender">
+                        <option selected="selected" value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <button class="btn btn-primary btn-block" [disabled]="!profileForm.valid" (click)='Search()'>Search</button>
+        </form>
+        <div class="text-center">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- listing -->
+
+  <div class="container col-md-5">
+      <div class="col-md-10 mt-4  mx-auto mt-5">
+          <table class="table table-bordered">
+              <!-- <caption>List of users</caption> -->
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Insurer</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>asd</td>
+                  <td>Otto</td>
+                  <td><button type="button" class="btn btn-primary btn-sm" [routerLink]="['/product-details']">Get Details</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td><button type="button" class="btn btn-primary btn-sm" [routerLink]="['/product-details']">Get Details</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+      </div>
+</div>
+      
