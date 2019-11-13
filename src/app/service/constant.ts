@@ -9,5 +9,5 @@
     insuranceCreate:"polices",
     buyPolicy:'addRecipient',
     policyListing:'allRecipient?user_id=',
-    searchPloicy:'searchPolicies'
+    searchPloicy:'searchPolicies?'
 };

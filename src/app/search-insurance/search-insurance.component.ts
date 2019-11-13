@@ -15,7 +15,6 @@ export class SearchInsuranceComponent implements OnInit {
     recipient_name: ['', Validators.required],
     recipient_age: ['', Validators.required],
     recipient_adhar_no: ['', Validators.required],
-    recipient_contact: ['', Validators.required],
     recipient_disabled: ['true', [Validators.required]],
     recipient_medical_history: ['true', Validators.required]
   });
@@ -29,8 +28,10 @@ export class SearchInsuranceComponent implements OnInit {
 
   Search(){
 
-    this.productService.getInsuranceList().subscribe((data:any) => {
+    let data = 'disabled_person='+this.profileForm.value.recipient_disabled+'&medical_history='+this.profileForm.value.recipient_medical_history;
+    this.productService.searchPlocy(data).subscribe((data:any) => {
       console.log('create data--->', data);
+      this.policyList = data;
       if(data.successToken == "true"){
         this.policyList = data.users;
       }
