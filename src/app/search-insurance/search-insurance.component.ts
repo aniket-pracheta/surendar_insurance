@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { ProductService } from "../service/product.service";
+
 
 @Component({
   selector: 'app-search-insurance',
@@ -18,14 +20,21 @@ export class SearchInsuranceComponent implements OnInit {
     recipient_medical_history: ['true', Validators.required]
   });
 
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder, public productService: ProductService) { }
 
+  policyList:any;
 
   ngOnInit() {
   }
 
   Search(){
 
+    this.productService.getInsuranceList().subscribe((data:any) => {
+      console.log('create data--->', data);
+      if(data.successToken == "true"){
+        this.policyList = data.users;
+      }
+    });
   }
 
 }

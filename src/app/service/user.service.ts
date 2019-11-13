@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
@@ -12,24 +12,34 @@ export class UserService {
 
   private loggedinUserBehv = new BehaviorSubject<any>(false);
   loggedinUser$ = this.loggedinUserBehv.asObservable();
+  headers = new HttpHeaders();
+  finalhead = this.headers.set('content-type', 'application/json');
 
-  constructor(private http: HttpClient,public router: Router) { }
+  constructor(private http: HttpClient, public router: Router) { }
 
 
   userRegister(data: any) {
-    this.http.post(url.register, data);
+    let headers = new HttpHeaders();
+    headers = headers.set('content-type', 'application/json');
+    return this.http.post(url.globalUrl + url.register, data, { headers });
+
   }
 
   loginUser(data: any) {
-    this.http.post(url.login, data)
+    let headers = new HttpHeaders();
+    headers = headers.set('content-type', 'application/json');
+    return this.http.get(url.globalUrl + url.login + data.password, { headers });
   }
 
   userListing() {
-    this.http.get(url.userList)
+    let headers = new HttpHeaders();
+    headers = headers.set('content-type', 'application/json');
+    return this.http.get(url.globalUrl + url.userList, { headers });
   }
 
-  setAdmin(data) {
+  setAdmin(data,userDetails) {
     localStorage.setItem('user', data);
+    localStorage.setItem('userDetails',userDetails);
     this.loggedinUserBehv.next(true);
   }
 
@@ -40,7 +50,7 @@ export class UserService {
   }
 
 
-  getUserType(){
+  getUserType() {
     const typeUser = localStorage.getItem('user');
     return typeUser;
   }

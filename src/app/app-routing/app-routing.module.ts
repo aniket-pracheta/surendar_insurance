@@ -17,18 +17,21 @@ import { SearchInsuranceComponent } from "../search-insurance/search-insurance.c
 
 import { UserLoggedGuard } from "../user-logged.guard";
 
+import { UserListingComponent } from "../user-listing/user-listing.component";
+
 
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'user-list', component: UserListingComponent, canActivate: [UserLoggedGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'home', component: UserDashboardComponent,canActivate: [UserLoggedGuard]  },
-  { path: 'create-insurance', component: CreateInsuranceComponent,canActivate: [UserLoggedGuard]  },
-  { path: 'engaged-list', component: EngagedProductComponent, canActivate: [UserLoggedGuard]  },
-  { path: 'product-list', component: ProductListComponent, canActivate: [UserLoggedGuard]  },
-  { path: 'product-details', component: ProductDetailsComponent,canActivate: [UserLoggedGuard]  },
-  { path: 'search-policies', component: SearchInsuranceComponent,canActivate: [UserLoggedGuard]  },
+  { path: 'home', component: UserDashboardComponent, canActivate: [UserLoggedGuard] },
+  { path: 'create-insurance', component: CreateInsuranceComponent, canActivate: [UserLoggedGuard] },
+  { path: 'engaged-list', component: EngagedProductComponent, canActivate: [UserLoggedGuard] },
+  { path: 'product-list', component: ProductListComponent, canActivate: [UserLoggedGuard] },
+  { path: 'product-details/:id', component: ProductDetailsComponent, canActivate: [UserLoggedGuard] },
+  { path: 'search-policies', component: SearchInsuranceComponent, canActivate: [UserLoggedGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

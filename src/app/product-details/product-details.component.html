@@ -82,7 +82,9 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Age</label>
-            <input type="number" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" formControlName='recipient_age' class="form-control" id="recipient-name">
+            <input type="number" maxlength="2"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              formControlName='recipient_age' class="form-control" id="recipient-name">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Adhar Card no</label>
@@ -112,11 +114,22 @@
             </div>
           </div>
 
+          <div *ngIf='returnPremeium()' class="form-group">
+            <label for="inputEmail">Premeium for Year- {{returnPremeium()}}</label>
+            <!-- <div>
+              <select formControlName="recipient_disabled" class="form-control" name="gender">
+                <option selected="selected" value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div> -->
+          </div>
+
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" [disabled]="!profileForm.valid" (click)='getrecipientDeatils()'>Confirm Checkout</button>
+        <button type="button" class="btn btn-primary" [disabled]="!profileForm.valid"
+          (click)='getrecipientDeatils()'>Confirm Checkout</button>
       </div>
     </div>
   </div>

@@ -37,12 +37,19 @@ export class LoginComponent implements OnInit {
   Login() {
     console.log('--->', this.profileForm.value);
     if (this.profileForm.value.email == 'admin' && this.profileForm.value.password == 'admin') {
-      this.userService.setAdmin('admin');
+      this.userService.setAdmin('admin',null);
       this.router.navigate(['home']);
     } else {
-      this.userService.loginUser(this.profileForm.value);
-      this.userService.setAdmin('user');
-      this.router.navigate(['home']);
+      this.userService.loginUser(this.profileForm.value).subscribe((data:any)=>{
+        console.log('login success--->',data);
+        let data2 = data;
+        if(data2.successToken == "true"){
+          this.userService.setAdmin('user',JSON.stringify(data2.users));
+          this.router.navigate(['home']); 
+        }else{
+          alert('check user id and password');
+        }
+      });
     }
 
   }

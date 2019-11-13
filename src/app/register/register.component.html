@@ -8,7 +8,7 @@
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
                 <label for="firstName">First name</label>
-                <input type="text" formControlName="firstName" id="firstName" class="form-control" placeholder="First name" required="required"
+                <input type="text" formControlName="first_name" id="firstName" class="form-control" placeholder="First name" required="required"
                   autofocus="autofocus">
 
               </div>
@@ -16,7 +16,7 @@
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
                 <label for="lastName">Last name</label>
-                <input  formControlName="lastName" type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
+                <input  formControlName="last_name" type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
 
               </div>
             </div>
@@ -30,6 +30,15 @@
 
           </div>
         </div>
+
+        <div class="form-group">
+          <div class="form-label-group">
+            <label for="inputEmail">Contact number</label>
+            <input formControlName="contact_number" type="number" id="inputEmail" class="form-control" placeholder="Enter phone no" required="required">
+
+          </div>
+        </div>
+
         <div class="form-group">
           <div class="form-row">
             <div class="col-md-6 mt-4">
@@ -43,7 +52,7 @@
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
                 <label for="confirmPassword">Confirm password</label>
-                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password"
+                <input type="password" formControlName="confirmPassword" id="confirmPassword" class="form-control" placeholder="Confirm password"
                   required="required">
               </div>
             </div>
@@ -56,7 +65,7 @@
             <div class="col-md-6 mt-4">
               <div class="form-label-group">
                 <label for="inputEmail">DOB</label>
-            <input formControlName="dateOfBirth" type="date" id="confirmPassword" class="form-control" placeholder="Confirm password"
+            <input formControlName="dob" type="date" id="confirmPassword" class="form-control" placeholder="Confirm password"
             required="required">
               </div>
             </div>
@@ -75,8 +84,8 @@
             </div>
           </div>
         </div>
-
-        <button class="btn btn-primary btn-block" [disabled]="!profileForm.valid" (click)='register()'>Register</button>
+        
+        <button class="btn btn-primary btn-block" [disabled]="!profileForm.valid"  (click)='register()'>Register</button>
       </form>
       <div class="text-center">
         <a class="d-block small mt-3" [routerLink]="['/login']">Login Page</a>
